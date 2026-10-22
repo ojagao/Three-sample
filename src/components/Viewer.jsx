@@ -4,7 +4,7 @@ import * as THREE from "three";
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
 import { AmbientLight, PointLight } from "three";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
-import { RGBELoader } from "three/examples/jsm/loaders/RGBELoader";
+import { HDRLoader } from "three/examples/jsm/loaders/HDRLoader";
 import * as lil from "lil-gui";
 
 const Viewer = () => {
@@ -29,8 +29,8 @@ const Viewer = () => {
         // scene
         const scene = new THREE.Scene();
 
-        const rgbeLoader = new RGBELoader();
-        rgbeLoader.load("background/bg_sky.pic", (texture) => {
+        const hdrLoader = new HDRLoader();
+        hdrLoader.load("background/bg_sky.pic", (texture) => {
             texture.mapping = THREE.EquirectangularReflectionMapping;
             scene.background = texture;
             scene.environment = texture;
